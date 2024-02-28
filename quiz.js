@@ -51,12 +51,14 @@ const questions = [
       }
   ];
   
+  // Variables to track current question index, user's scores, etc.
   let currentQuestionIndex = 0;
   let score = 0;
   let userName = '';
   let highestScore = 0;
   let userScores = [];
   
+  // DOM elements accessed by JavaScript
   const questionElement = document.getElementById('question');
   const optionsElement = document.getElementById('options');
   const resultElement = document.getElementById('result');
@@ -67,6 +69,7 @@ const questions = [
   const highestScoreElement = document.getElementById('highestScore');
   const topScoresElement = document.getElementById('topScores');
   
+  // Function to load a question onto the page
   function loadQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
@@ -80,6 +83,7 @@ const questions = [
     });
   }
   
+  // Function to check the user's answer
   function checkAnswer(selectedOption) {
     const currentQuestion = questions[currentQuestionIndex];
     if (selectedOption === currentQuestion.answer) {
@@ -94,6 +98,7 @@ const questions = [
   }
   
   
+  // Function to disable option buttons after an answer is selected
   function disableOptions() {
     const optionButtons = document.querySelectorAll('.option');
     optionButtons.forEach(button => {
@@ -101,6 +106,7 @@ const questions = [
     });
   }
   
+    // Function to load the next question
   function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -112,24 +118,8 @@ const questions = [
     }
   }
   
-  function endQuiz() {
-    if (score > highestScore) {
-      highestScore = score;
-      highestScoreElement.textContent = "Highest Score: " + highestScore;
-    }
-    userScores.push({ name: userName, score });
-    userScores.sort((a, b) => b.score - a.score);
-    if (userScores.length > 10) {
-      userScores.pop();
-    }
-    localStorage.setItem('userScores', JSON.stringify(userScores));
-    showTopScores();
-    questionElement.textContent = "Quiz Completed!";
-    optionsElement.innerHTML = '';
-    resultElement.textContent = '';
-    scoreElement.textContent = "Final Score: " + score;
-  }
   
+    // Function to show top scores
   function showTopScores() {
     topScoresElement.innerHTML = '<h3>Top 10 Scores:</h3>';
     userScores.forEach((user, index) => {
@@ -138,7 +128,8 @@ const questions = [
       topScoresElement.appendChild(listItem);
     });
   }
-
+ 
+    // Function to start the quiz
   function startQuiz() {
     userName = userNameInput.value.trim();
     if (userName === '') {
@@ -151,7 +142,8 @@ const questions = [
     scoreElement.textContent = "Score: " + score;
     startButton.disabled = true; // Disable the start button once the quiz starts
   }
-  
+
+    // Function to end the quiz
   function endQuiz() {
     if (score > highestScore) {
       highestScore = score;
@@ -171,39 +163,8 @@ const questions = [
     nextButton.disabled = true; // Disable the next button once the quiz ends
   }
   
-  // Attach event listener to the correct button id
+    // Attach event listener to the correct button id
   startButton.addEventListener('click', startQuiz);
   nextButton.addEventListener('click', nextQuestion);
   
-//   function startQuiz() {
-//     userName = userNameInput.value.trim();
-//     if (userName === '') {
-//       alert('Please enter your name to start the quiz.');
-//       return;
-//     }
-//     currentQuestionIndex = 0;
-//     score = 0;
-//     loadQuestion();
-//     scoreElement.textContent = "Score: " + score;
-//   }
-  
-//   function resetQuiz() {
-//     userNameInput.value = '';
-//     userName = '';
-//     score = 0;
-//     currentQuestionIndex = 0;
-//     loadQuestion();
-//     resultElement.textContent = '';
-//     scoreElement.textContent = "Score: " + score;
-//   }
-  
-//   // Load userScores from localStorage if available
-//   const storedScores = localStorage.getItem('userScores');
-//   if (storedScores) {
-//     userScores = JSON.parse(storedScores);
-//     showTopScores();
-//   }
-  
-//   startButton.addEventListener('click', startQuiz);
-//   nextButton.addEventListener('click', nextQuestion);
   
