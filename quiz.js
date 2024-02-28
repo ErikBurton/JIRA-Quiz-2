@@ -1,51 +1,51 @@
 const questions = [
     {
-        question: "What is the primary purpose of linking a bug to a parent Epic in Jira?",
+        question: "1. What is the primary purpose of linking a bug to a parent Epic in Jira?",
         options: ["To assign responsibility to the Product Owners", "To ensure proper tracking and classification", "To prioritize the bug for immediate fixing", "To create visibility for developers' work"],
         answer: "To ensure proper tracking and classification"
       },
       {
-        question: "Which classification codes can be assigned to an Epic?",
+        question: "2. Which classification codes can be assigned to an Epic?",
         options: ["BAU, DQM, or BPP", "QA, DRM, or BPP", "BAU, DRM, or BPP", "QA, DQM, or BPP"],
         answer: "BAU, DRM, or BPP"
       },
       {
-        question: "In Jira, how should the component field of a Story be filled out?",
+        question: "3. In Jira, how should the component field of a Story be filled out?",
         options: ["It should match the Assignee's team", "It should match the Epic's classification", "It should be left blank", "It should match the Product Owner's team"],
         answer: "It should match the Assignee's team"
       },
       {
-        question: "What should be done if help is needed from another team for a work item?",
+        question: "4. What should be done if help is needed from another team for a work item?",
         options: ["Create a Sub-task and assign it to the other team", "Log a Story or Task for that team", "Contact the Scrum Master of the other team directly", "Reach out to the SOS for assistance"],
         answer: "Log a Story or Task for that team"
       },
       {
-        question: "When should the FixVersion field be set in Jira?",
+        question: "5. When should the FixVersion field be set in Jira?",
         options: ["After the work item is completed", "Before any testing is conducted", "By the Product Owner or their delegate", "By the Scrum Master during Sprint Planning"],
         answer: "By the Product Owner or their delegate"
       },
       {
-        question: "What is the significance of the FixVersion field in Jira?",
+        question: "6. What is the significance of the FixVersion field in Jira?",
         options: ["It indicates the priority level of the work item", "It determines the assignee of the work item", "It represents a commitment to deploying the work item to production", "It indicates the estimated effort required to complete the work item"],
         answer: "It represents a commitment to deploying the work item to production"
       },
       {
-        question: "How should bugs found in UAT or Production be logged in Jira?",
+        question: "7. How should bugs found in UAT or Production be logged in Jira?",
         options: ["As Bugs and assigned directly to developers", "As Defects and prioritized like any other Story", "As Sub-tasks of the parent Epic", "As Tasks and assigned to the Scrum Master"],
         answer: "As Defects and prioritized like any other Story"
       },
       {
-        question: "What is the recommended action when a bug exists in both Dev160 and Dev105 environments?",
+        question: "8. What is the recommended action when a bug exists in both Dev160 and Dev105 environments?",
         options: ["Log separate bugs for each environment", "Close the bug in one environment and link it to the other", "Prioritize fixing the bug in Dev160 over Dev105", "Notify the Product Owner for further instructions"],
         answer: "Close the bug in one environment and link it to the other"
       },
       {
-        question: "How are changes to Dev160 environment categorized in terms of work items?",
+        question: "9. How are changes to Dev160 environment categorized in terms of work items?",
         options: ["All changes require a FixVersion for deployment", "Config changes require a FixVersion, but code changes do not", "Config changes are unique to Dev160 and do not require a FixVersion", "Only code changes require a FixVersion, config changes do not"],
         answer: "Config changes are unique to Dev160 and do not require a FixVersion"
       },
       {
-        question: "What action is taken about three weeks before a planned release in terms of work item management?",
+        question: "10. What action is taken about three weeks before a planned release in terms of work item management?",
         options: ["Teams provide daily updates on the status of open items", "All work items are immediately closed", "New work items are created for the release", "The release date is postponed for further planning"],
         answer: "Teams provide daily updates on the status of open items"
       }
