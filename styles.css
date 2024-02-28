@@ -98,4 +98,23 @@ body {
     color: #fff;
     cursor: pointer;
   }
+
+  .correct-answer {
+    padding: 10px;
+    border: 2px solid #28a745; /* Green color */
+    border-radius: 5px;
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    margin-bottom: 10px;
+  }
+  
+  .wrong-answer {
+    padding: 10px;
+    border: 2px solid #dc3545; /* Red color */
+    border-radius: 5px;
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    margin-bottom: 10px;
+  }
+  
   

@@ -84,14 +84,15 @@ const questions = [
     const currentQuestion = questions[currentQuestionIndex];
     if (selectedOption === currentQuestion.answer) {
       score += 10;
-      resultElement.textContent = "Correct!";
+      resultElement.innerHTML = `<div class="correct-answer">Correct! ${currentQuestion.answer}</div>`;
     } else {
-      resultElement.textContent = "Wrong!"
+      resultElement.innerHTML = `<div class="wrong-answer">Wrong!`;
     }
     scoreElement.textContent = "Score: " + score;
     disableOptions();
     nextButton.style.display = 'block';
   }
+  
   
   function disableOptions() {
     const optionButtons = document.querySelectorAll('.option');
