@@ -86,7 +86,7 @@ const questions = [
       score += 10;
       resultElement.innerHTML = `<div class="correct-answer">Correct! ${currentQuestion.answer}</div>`;
     } else {
-      resultElement.innerHTML = `<div class="wrong-answer">Wrong!`;
+      resultElement.innerHTML = `<div class="wrong-answer">Wrong - Keep studying!`;
     }
     scoreElement.textContent = "Score: " + score;
     disableOptions();
