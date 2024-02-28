@@ -138,7 +138,7 @@ const questions = [
       topScoresElement.appendChild(listItem);
     });
   }
-  
+
   function startQuiz() {
     userName = userNameInput.value.trim();
     if (userName === '') {
@@ -149,25 +149,61 @@ const questions = [
     score = 0;
     loadQuestion();
     scoreElement.textContent = "Score: " + score;
+    startButton.disabled = true; // Disable the start button once the quiz starts
   }
   
-  function resetQuiz() {
-    userNameInput.value = '';
-    userName = '';
-    score = 0;
-    currentQuestionIndex = 0;
-    loadQuestion();
-    resultElement.textContent = '';
-    scoreElement.textContent = "Score: " + score;
-  }
-  
-  // Load userScores from localStorage if available
-  const storedScores = localStorage.getItem('userScores');
-  if (storedScores) {
-    userScores = JSON.parse(storedScores);
+  function endQuiz() {
+    if (score > highestScore) {
+      highestScore = score;
+      highestScoreElement.textContent = "Highest Score: " + highestScore;
+    }
+    userScores.push({ name: userName, score });
+    userScores.sort((a, b) => b.score - a.score);
+    if (userScores.length > 10) {
+      userScores.pop();
+    }
+    localStorage.setItem('userScores', JSON.stringify(userScores));
     showTopScores();
+    questionElement.textContent = "Quiz Completed!";
+    optionsElement.innerHTML = '';
+    resultElement.textContent = '';
+    scoreElement.textContent = "Final Score: " + score;
+    nextButton.disabled = true; // Disable the next button once the quiz ends
   }
   
+  // Attach event listener to the correct button id
   startButton.addEventListener('click', startQuiz);
   nextButton.addEventListener('click', nextQuestion);
+  
+//   function startQuiz() {
+//     userName = userNameInput.value.trim();
+//     if (userName === '') {
+//       alert('Please enter your name to start the quiz.');
+//       return;
+//     }
+//     currentQuestionIndex = 0;
+//     score = 0;
+//     loadQuestion();
+//     scoreElement.textContent = "Score: " + score;
+//   }
+  
+//   function resetQuiz() {
+//     userNameInput.value = '';
+//     userName = '';
+//     score = 0;
+//     currentQuestionIndex = 0;
+//     loadQuestion();
+//     resultElement.textContent = '';
+//     scoreElement.textContent = "Score: " + score;
+//   }
+  
+//   // Load userScores from localStorage if available
+//   const storedScores = localStorage.getItem('userScores');
+//   if (storedScores) {
+//     userScores = JSON.parse(storedScores);
+//     showTopScores();
+//   }
+  
+//   startButton.addEventListener('click', startQuiz);
+//   nextButton.addEventListener('click', nextQuestion);
   
