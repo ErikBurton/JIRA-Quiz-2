@@ -26,7 +26,7 @@ This is a simple quiz game about work item management, designed to test your kno
 
 ## How to Run
 
-Simply open the `index.html` file in a web browser to start playing the game.
+Open this url https://erikburton.github.io/JIRA-Quiz-2/ in a web browser to start playing the game.
 
 ## Credits
 
